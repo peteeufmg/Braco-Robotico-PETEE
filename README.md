@@ -145,6 +145,27 @@ Interface de controle a ser desenvolvida. Possibilidades:
 
 ---
 
+## Melhorias Planejadas
+
+> **Status atual:** desmontado — remontagem necessária antes de qualquer teste de firmware.
+
+| # | Melhoria | Situação Atual | Proposta | Impacto | Observações |
+|---|---|---|---|---|---|
+| 1 | **Controle por IMU** | 6 potenciômetros físicos controlam os servos manualmente | Substituir por módulo **MPU-6050** (acelerômetro + giroscópio 6 DOF via I²C), espelhando movimentos do operador em tempo real | Firmware: trocar `analogRead(pinPotX)` por leitura I²C (`Wire.h` + `MPU6050.h`); mapear roll/pitch/yaw para ângulos 0–179° de cada servo | I²C usa SDA/A4 e SCL/A5 — conflito com Pot1 e Pot2 atuais; requer remapeamento de pinos e resistores pull-up 4,7 kΩ |
+| 2 | **Estrutura em Impressão 3D** | Peças em spumapaper — frágeis, encaixes imprecisos, servos se soltam | Modelar e imprimir peças em PLA/PETG compatíveis com os servos 9g existentes | Estrutura mais robusta e reproduzível; fixação por parafusos M2/M3 em vez de cola | Tolerância 0,2 mm nos encaixes; paredes ≥ 2 mm nas articulações; servo 9g: 22,8 × 12,5 × 22,7 mm, eixo Ø 4,7 mm; salvar `.stl` em `docs/3d-models/` |
+| 3 | **Remontagem** | Braço desmontado | Remontar seguindo checklist de validação por etapas | Necessária antes de qualquer teste de firmware ou demonstração | Ver checklist abaixo |
+
+### Checklist de Remontagem
+
+- [ ] Testar cada servo individualmente com sketch básico (`Servo.write(90)`)
+- [ ] Verificar estado da placa de circuito impresso (trilhas, soldas frias)
+- [ ] Confirmar alimentação estável de 5 V antes de conectar os servos
+- [ ] Gravar o firmware `controle.ino` no Arduino Uno antes de fixar na estrutura
+- [ ] Calibrar posição zero de cada servo antes de montar as peças mecânicas
+- [ ] Testar modo manual → modo gravação → modo reprodução após montagem completa
+
+---
+
 ## Equipe
 
 Projeto original: Lorran Pires Venetillo Dutra, Michael Cassemiro Oliveira, Vítor Gabriel Reis Caitité, Willian Braga da Silva.
