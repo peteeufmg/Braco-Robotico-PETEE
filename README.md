@@ -1,6 +1,5 @@
 # Braço Robótico — PETEE UFMG
 
-TESTE
 
 Projeto de braço robótico desenvolvido originalmente na disciplina de **Laboratório de Circuitos Elétricos 1** e doado ao grupo **PETEE (Programa de Educação Tutorial da Engenharia Elétrica) da UFMG**. Utilizado em atividades de extensão como a **Engenharia na Escola (ENE)** e a **Mostra de Profissões da UFMG** para demonstrar conceitos básicos de robótica e programação.
 
