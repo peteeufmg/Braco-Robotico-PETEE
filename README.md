@@ -11,11 +11,23 @@ Inspirado no projeto [FoamArmDS da EasyDS](https://www.youtube.com/watch?v=vVOyW
 
 ```
 Braco-Robotico-PETEE/
-├── BackEnd/
-│   └── firmware/
-│       └── controle/
-│           └── controle.ino   # Firmware Arduino (código principal)
-├── FrontEnd/                  # Interface de controle (a definir)
+│
+├── hardware/                          # Projeto físico embarcado
+│   ├── firmware/                      # Projeto PlatformIO (ESP32)
+│   │   └── controle/
+│   │       └── controle.ino           # Firmware atual (migrar para PIO)
+│   ├── electronics/                   # KiCad: esquemáticos e PCB
+│   │   ├── symbols/                   # Símbolos customizados (ex: servo 9g)
+│   │   └── datasheets/                # PDFs dos datasheets dos componentes
+│   └── mechanical/                    # Modelagem 3D (FreeCAD) e impressão
+│       ├── freecad/                   # Arquivos fonte .FCStd
+│       └── stl/                       # Arquivos exportados para impressão
+│
+├── app/                               # Interface de controle (a definir)
+│
+├── docs/                              # Documentação e relatórios
+│   └── Relatorio_BracoRobotico.pdf
+│
 └── README.md
 ```
 
@@ -83,7 +95,7 @@ Instale `VarSpeedServo` pelo **Gerenciador de Bibliotecas** do Arduino IDE ou ma
 
 ### Como compilar e gravar
 
-1. Abra `BackEnd/firmware/controle/controle.ino` no Arduino IDE.
+1. Abra `hardware/firmware/controle/controle.ino` no Arduino IDE.
 2. Selecione a placa **Arduino Uno** em *Ferramentas > Placa*.
 3. Selecione a porta COM correta em *Ferramentas > Porta*.
 4. Clique em **Carregar** (Upload).
