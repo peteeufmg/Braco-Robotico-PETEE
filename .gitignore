@@ -1,0 +1,32 @@
+# ==========================================================
+# REGRAS DO KICAD (Eletrônica)
+# ==========================================================
+# Ignorar configurações locais do projeto e preferências
+*.kicad_prl
+
+# Ignorar backups e arquivos de recuperação (Auto-save)
+*.bak
+*-bak
+*~
+~*
+_autosave-*
+*.tmp
+
+# Ignorar arquivos de log de roteamento (se gerados)
+*.rpt
+
+# ==========================================================
+# REGRAS DO PLATFORMIO / ARDUINO (Firmware)
+# ==========================================================
+# A pasta .pio contém os binários compilados e bibliotecas baixadas, não deve ir pro Git
+.pio/
+build/
+*.hex
+*.elf
+*.bin
+
+# ==========================================================
+# REGRAS DO SISTEMA (Windows/Mac)
+# ==========================================================
+Thumbs.db
+.DS_Store
